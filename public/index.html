@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ATIVIDADE - REDE SOCIAL</title>
+
+    <link rel="stylesheet"
+          href="./styles.css">
+
+</head>
+
+<body>
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- SOCKET -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <div class="header_container">
+
+        <img src="./images/rede.png" />
+
+        <h1>ATIVIDADE - REDE SOCIAL</h1>
+
+    </div>
+
+    <div class="button_post_container">
+
+        <button id="btn_post">
+
+            POST
+
+        </button>
+
+    </div>
+
+    <div class="posts_container"></div>
+
+    <!-- MODAL -->
+    <div id="myModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close">
+
+                &times;
+
+            </span>
+
+            <div class="form_post_container">
+
+                <h4>FAÇA UM POST</h4>
+
+                <form id="frm_post">
+
+                    <input type="text"
+                           id="txt_titulo"
+                           placeholder="TITULO DO POST">
+
+                    <br />
+
+                    <input type="text"
+                           id="txt_post"
+                           placeholder="TEXTO DO POST">
+
+                    <br />
+
+                    <button type="submit">
+
+                        POSTAR
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
