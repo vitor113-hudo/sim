@@ -1,29 +1,12 @@
 const socket = io();
 
 // MODAL
-let btn = document.getElementById('btn_post');
-
 let modal = document.getElementById("myModal");
+
+let btn = document.getElementById('btn_post');
 
 let span = document.getElementsByClassName("close")[0];
 
-// ABRIR
-btn.addEventListener('click', function (event) {
-
-    event.preventDefault();
-
-    modal.style.display = "block";
-
-});
-
-// FECHAR
-span.addEventListener('click', function(event){
-
-    modal.style.display = "none";
-
-});
-
-// RENDERIZAR
 function renderMessage(message){
 
     $('.posts_container').prepend(`
@@ -40,6 +23,13 @@ function renderMessage(message){
 
 }
 
+// NOVO POST
+socket.on('receivedMessage', function(message){
+
+    renderMessage(message);
+
+});
+
 // POSTS ANTIGOS
 socket.on('previousMessage', function(messages){
 
@@ -51,14 +41,23 @@ socket.on('previousMessage', function(messages){
 
 });
 
-// NOVO POST
-socket.on('receivedMessage', function(message){
+// FECHAR
+span.addEventListener('click', function(event){
 
-    renderMessage(message);
+    modal.style.display = "none";
 
 });
 
-// ENVIAR POST
+// ABRIR
+btn.addEventListener('click', function(event){
+
+    event.preventDefault();
+
+    modal.style.display = "block";
+
+});
+
+// postar
 $('#frm_post').submit(function(event){
 
     event.preventDefault();
